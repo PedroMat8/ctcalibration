@@ -61,6 +61,7 @@ def axial_sym(input_folder1, input_folder2, save,bit32, *interval):
         data2_cal = np.append(data2_cal,data2_bin[i_val[2]:i_val[2]+delta+1])
 
     z_cal = np.arange(len(data1_cal))
+    z_bin = np.arange(len(data1_bin))
 
 
     def new_intensity(par, d2):
@@ -99,9 +100,9 @@ def axial_sym(input_folder1, input_folder2, save,bit32, *interval):
     
     ax1 = fig.add_subplot(221)
     ax1.set_title('z profiles')
-    ax1.plot(np.linspace(0,len(data1_bin),100),data1_bin, label='reference')
-    ax1.plot(np.linspace(0,len(data1_bin),100),data2_bin, label='input')
-    ax1.plot(np.linspace(0,len(data1_bin),100),new_intensity(wopt.x, data2_bin), label='calibrated input')
+    ax1.plot(z_bin,data1_bin, label='reference')
+    ax1.plot(z_bin,data2_bin, label='input')
+    ax1.plot(z_bin,new_intensity(wopt.x, data2_bin), label='calibrated input')
     ax1.legend()
     
     ax2 = fig.add_subplot(222)
@@ -113,15 +114,15 @@ def axial_sym(input_folder1, input_folder2, save,bit32, *interval):
 
     ax3 = fig.add_subplot(223)
     ax3.set_title('reference')
-    ax3.imshow(data2[10,:,:])
+    ax3.imshow(data2[int(len(file_list1)/2),:,:])
     
     ax4 = fig.add_subplot(224)
     ax4.set_title('calibrated intput')
-    ax4.imshow(data_output[10,:,:])
+    ax4.imshow(data_output[int(len(file_list1)/2),:,:])
 
     return data_output
 
 
 # 100 slices: without saving data 6.199060 s
 # 100 slices: saving data 8.248467
-axial_sym('s1', 's2', True, True, [1,5,50,53],[7,14,60,66],[20,30,80,90])
+# axial_sym('s1', 's2', True, True, [1,5,50,53],[7,14,60,66],[20,30,80,90])
