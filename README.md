@@ -21,28 +21,28 @@ axial_sym(input_folder1, input_folder2, save, bit32, *interval)
   - z2_ini: initial z for interval in sequence 2
   - z2_fin: final z for interval in sequence 2
 
-  **Outputs*
-  It returns a numpy array of the calibrated sequence:
-  - 1st dimension: z direction
-  - 2nd/3rd dimension: x and y direction
+**Outputs**
+It returns a numpy array of the calibrated sequence:
+- 1st dimension: z direction
+- 2nd/3rd dimension: x and y direction
 
-  ## **How to use it**
-  **1. Install the following python libraries:**
-  - scipy
-  - cv2
+## **How to use it**
+**1. Install the following python libraries:**
+- scipy
+- cv2
 
-  **2. Download calibration.py**
-  In your working folder download the file *calibration.py*
+**2. Download calibration.py**
+In your working folder download the file *calibration.py*
 
-  **3. Store the 2 input tif sequences in appropriate folders**
-  In your working directory create two input folders (i.e. *s1* and *s2*) and store your original tif sequences.
+**3. Store the 2 input tif sequences in appropriate folders**
+In your working directory create two input folders (i.e. *s1* and *s2*) and store your original tif sequences.
 
-  **4. Code example**
-  ```
-  >>> import calibration as cal
+**4. Code example**
+```
+>>> import calibration as cal
 
-  >>> data_output = cal.axial_sym('s1', 's2', True, True, [1,100,1,100])
+>>> data_output = cal.axial_sym('s1', 's2', True, True, [1,100,1,100])
 
-  ```
+```
 
-  For more examples see the file **example.py**
+For more examples see the file **example.py**
